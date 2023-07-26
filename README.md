@@ -1,2 +1,4 @@
 # rpg
- mini rpg game (korean,english)
+text rpg game
+
+made with python html css
