@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>text survival</title>
+    <title>text rpg</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>text survival</h1>
-    <button class="tree" id="incrementBtn">나뭇가지</button>
+    <h1>text rpg</h1>
+    <button class="tree" id="incrementBtn">나무 얻기</button>
     <p>나뭇가지: <span id="wood">{{woods}}</span></p>
 
-
+    <button class="drop" id="drop">나뭇가지 내려놓기</button>
     <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>
