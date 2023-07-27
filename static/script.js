@@ -1,4 +1,4 @@
-var chop = 2500;
+var chop = 100;
 const drop = document.querySelector("#drop");
 drop.disabled = true;
 document.getElementById('incrementBtn').addEventListener('click', function() {
@@ -10,7 +10,7 @@ document.getElementById('incrementBtn').addEventListener('click', function() {
     .then(data => {
         // 서버에서 받은 데이터로 화면 업데이트
         document.getElementById('wood').textContent = data.wood;
-        if(data.wood >= 1){
+        if(data.wood >= 10){
             drop.disabled = false;
         }else {
             drop.disabled = true;
@@ -22,7 +22,18 @@ document.getElementById('incrementBtn').addEventListener('click', function() {
         document.getElementById('incrementBtn').disabled = false;
     }, chop);
 });
-
+document.getElementById('drop').addEventListener('click', function() {
+    // AJAX를 이용하여 서버로 데이터 전송
+    fetch('/', {
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => {
+        // 서버에서 받은 데이터로 화면 업데이트
+        document.getElementById('wood').textContent = data.wood;
+    })
+    .catch(error => console.error('Error:', error));
+});
 document.getElementById('saveBtn').addEventListener('click', function() {
     var data = prompt('저장할 데이터를 입력하세요:');
     if (data !== null) {

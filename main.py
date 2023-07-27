@@ -2,16 +2,26 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 wood = 0
+tool = 'wood axe'
 
 @app.route('/')
 def index():
     global wood
-    return render_template("index.html",woods = wood)
+    global tool
+    return render_template("index.html",woods = wood,tool = tool)
 
 @app.route('/',methods=['POST'])
 def wood_add():
     global wood
     wood = wood + 1
+    return jsonify({'wood': wood})
+
+@app.route('/', methods=['POST'])
+def decrement_counter():
+    global wood
+    wood -= 10  # 나무 10개씩 빼기
+    if wood < 0:
+        wood = 0
     return jsonify({'wood': wood})
 
 @app.route('/save', methods=['POST'])
