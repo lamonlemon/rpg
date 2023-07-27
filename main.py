@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 wood = 0
@@ -12,7 +12,7 @@ def index():
 def wood_add():
     global wood
     wood = wood + 1
-    return render_template("index.html",woods = wood)
+    return jsonify({'wood': wood})
 
 
 if __name__ == '__main__':
