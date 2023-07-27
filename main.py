@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 wood = 0
@@ -13,6 +13,25 @@ def wood_add():
     global wood
     wood = wood + 1
     return jsonify({'wood': wood})
+
+@app.route('/save', methods=['POST'])
+def save_data():
+    global wood
+    data = request.form.get('data')
+    # 데이터 저장
+    with open('data.txt', 'w') as file:
+        file.write(data)
+    return jsonify({'message': '저장 완료'})
+
+@app.route('/load', methods=['GET'])
+def load_data():
+    # 데이터 불러오기
+    try:
+        with open('data.txt', 'r') as file:
+            data = file.read()
+        return jsonify({'data': data})
+    except FileNotFoundError:
+        return jsonify({'data': ''})
 
 
 if __name__ == '__main__':

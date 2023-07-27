@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>text rpg</h1>
+    <header>
+        <h1>text rpg</h1>
+        <button id="saveBtn" class="save find-btn1">데이터 저장</button>
+        <button id="loadBtn" class="load find-btn1">데이터 불러오기</button>
+    </header>
+    <br>
     <button class="tree" id="incrementBtn">나무 얻기</button>
     <p>나뭇가지: <span id="wood">{{woods}}</span></p>
 
     <button class="drop" id="drop">나뭇가지 내려놓기</button>
+    <div id="dataContainer"></div>
     <script src="{{url_for('static',filename='script.js')}}"></script>
+    <script src="{{url_for('static',filename='data_handler.js')}}"></script>
 </body>
 </html>

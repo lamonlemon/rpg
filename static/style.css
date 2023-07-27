@@ -6,3 +6,7 @@ html,head {
 h1 {
     text-align: center;
 }
+
+.find-btn1{
+	display :inline-block;
+}
