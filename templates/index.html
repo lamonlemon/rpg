@@ -12,10 +12,13 @@
     </header>
     <button id="incrementBtn" onclick="modifyWood('add')">나무 채집</button>
     <p>나뭇가지: <span id="wood">{{woods}}</span></p>
-    <p>도구: <span id="tool">{{tool}}</span></p>
+    <p>도구: 
+        <select name="tool" id="tool" class="select">
+            <option value="wood">{{tool}}</option>
+        </select>
+    </p>
 
-    <button id="decrementBtn" onclick="modifyWood('subtract')">나무 <span id="build">{{need}}</span>개 빼기</button>
-    <div id="dataContainer"></div>
+    <button id="decrementBtn" onclick="modifyWood('subtract')">집 수리하기 (나무 <span id="build">{{need}}</span>개)</button>
     <script src="{{url_for('static',filename='script.js')}}"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-var chop = 100;
+var chop = 0;
 // document.getElementById('build').textContent = 10;
 
 function modifyWood(action) {
@@ -14,13 +14,10 @@ function modifyWood(action) {
     .then(data => {
         // 서버에서 받은 데이터로 화면 업데이트
         document.getElementById('wood').textContent = data.wood;
-        if (data.need == '') {
-            data.need = 10; // need가 빈 문자열일 때 10으로 설정
-        }
         
         document.getElementById('build').textContent = data.need;
         // 나무 개수가 10개 이상인 경우 빼기 버튼 활성화, 아닌 경우 비활성화
-        if(typeof data.need == 'number'){
+        if(data.need < 100){
             document.getElementById('decrementBtn').disabled = data.wood < data.need;
         }else{
             document.getElementById('decrementBtn').disabled = true;
@@ -39,6 +36,8 @@ function modifyWood(action) {
 
 // 페이지 로드 시 로컬 스토리지에 저장된 데이터 로드
 window.addEventListener('load', function() {
+    localStorage.setItem('wood', 0);
+    localStorage.setItem('need', 10);
     var storedWood = localStorage.getItem('wood');
     var storedNeed = localStorage.getItem('need');
     if (storedWood !== null) {

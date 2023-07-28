@@ -1,9 +1,10 @@
 from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
-wood = 100000
+wood = 0
 tool = 'wood axe'
-need = 0
+need = 10
+temp = 0
 
 @app.route('/')
 def index():
@@ -15,17 +16,19 @@ def index():
 def modify_wood():
     global wood
     global need
+    global temp
     if request.method == 'POST':
         action = request.form.get('action')
         if action == 'add':
             wood += 1
         elif action == 'subtract':
+            print('hello')
             wood -= need
             need += 10
             if wood < 0:
                 wood = 0
             if need >= 100:
-                return jsonify({'wood': wood, 'need': 'Max'})
+                need = 100
     return jsonify({'wood': wood, 'need': need})
 
 
