@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 wood = 0
 tool = 'wood axe'
+need = 0
 
 @app.route('/')
 def index():
@@ -16,14 +17,15 @@ def wood_add():
     wood = wood + 1
     return jsonify({'wood': wood})
 
-@app.route('/', methods=['POST'])
+@app.route('/make_house', methods=['POST'])
 def decrement_counter():
     global wood
-    wood -= 10  # 나무 10개씩 빼기
+    global need
+    need += 10
+    wood -= need  # 나무 10개씩 빼기
     if wood < 0:
         wood = 0
-    return jsonify({'wood': wood})
-
+    return jsonify({'wood': wood},{'need':need})
 @app.route('/save', methods=['POST'])
 def save_data():
     global wood

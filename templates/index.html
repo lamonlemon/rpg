@@ -17,7 +17,7 @@
     <p>나뭇가지: <span id="wood">{{woods}}</span></p>
     <p>도구: <span id="tool">{{tool}}</span></p>
 
-    <button class="drop" id="drop">집 수리하기 (나무 10개)</button>
+    <button class="drop" id="drop">집 수리하기 (나무 <span id="need">{{need}}</span>개)</button>
     <div id="dataContainer"></div>
     <script src="{{url_for('static',filename='script.js')}}"></script>
     <script src="{{url_for('static',filename='data_handler.js')}}"></script>
