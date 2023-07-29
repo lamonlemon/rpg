@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text rpg</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
+</head>
+<body>
+    <button type="submit" href="/">집 나가기</button>
+    <p>집 레벨: {{level}}lv</p>
+    <button onclick="sleep()" id="sleep">자기</button>
+    <form action="/sleep" method="post" class="when" id="whenSleep">
+        <select name="when" id="whenSleep">
+            <option value="morning">아침</option>
+            <option value="dark">저녁</option>
+            <option value="stop">그만 둔다</option>
+        </select>
+        <button type="submit" id="go">자기</button>
+    </form>
+    <script src="{{url_for('static',filename='home.js')}}"></script>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>

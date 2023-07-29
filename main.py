@@ -31,6 +31,9 @@ def modify_wood():
                 need = 100
     return jsonify({'wood': wood, 'need': need})
 
+@app.route('/house', methods=['POST'])
+def move_home():
+    return render_template('house.html',tool = tool, level = need % 10 - 1)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

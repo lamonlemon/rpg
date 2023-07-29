@@ -1,4 +1,5 @@
 var chop = 0;
+document.getElementById('decrementBtn').disabled = true;
 // document.getElementById('build').textContent = 10;
 
 function modifyWood(action) {
@@ -36,8 +37,8 @@ function modifyWood(action) {
 
 // 페이지 로드 시 로컬 스토리지에 저장된 데이터 로드
 window.addEventListener('load', function() {
-    localStorage.setItem('wood', 0);
-    localStorage.setItem('need', 10);
+    // localStorage.setItem('wood', 0);
+    // localStorage.setItem('need', 10);
     var storedWood = localStorage.getItem('wood');
     var storedNeed = localStorage.getItem('need');
     if (storedWood !== null) {
