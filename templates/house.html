@@ -8,7 +8,9 @@
     <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
 </head>
 <body>
-    <button type="submit" href="/">집 나가기</button>
+    <form action="/main">
+        <button type="submit">집 나가기</button>
+    </form>
     <p>집 레벨: {{level}}lv</p>
     <button onclick="sleep()" id="sleep">자기</button>
     <form action="/sleep" method="post" class="when" id="whenSleep">

@@ -7,6 +7,7 @@ need = 10
 temp = 0
 
 @app.route('/')
+@app.route('/main')
 def index():
     global wood
     global tool
